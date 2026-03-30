@@ -196,34 +196,35 @@ ol {
     padding-left: 25px;
     margin-bottom: 20px;
 }
-
 li {
-    margin-bottom: 25px;
-    padding-left: 15px;
-    border-left: 3px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
-    color: var(--light-text);
+  margin-bottom: 25px;
+  padding-left: 15px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  color: var(--light-text);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 li::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    color: var(--secondary-color);
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+  left: -10px;
+  color: var(--secondary-color);
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 li:hover {
-    /*border-left-color: var(--secondary-color);*/
-    transform: translateX(5px);
+  transform: translateX(5px) scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
 }
 
 li:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
+
 
 strong {
     color: var(--secondary-color);
