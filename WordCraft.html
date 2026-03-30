@@ -1,0 +1,3241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полное пособие по Тренажёру Слов</title>
+    <link rel="icon" href="img/icon.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+    /* Тёмная палитра */
+    --primary-color: #0f1419;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --bg-dark: #0a0e13;
+    --card-bg: #1a1f2e;
+    --item-bg: #252d3d;
+    --light-text: #e0e0e0;
+    --muted-text: #a0a0a0;
+    --border-color: #3a4556;
+    
+    --honey-color: #ffc107;
+    --brick-color: #a1887f;
+    --foam-color: #00bcd4;
+    --apple-color: #ff4081;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e13 0%, #1a1f2e 100%);
+    color: var(--light-text);
+    line-height: 1.6;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), #1a1f2e);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.app-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 3px solid var(--secondary-color);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: var(--light-text);
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.8;
+    color: var(--muted-text);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1f2e, #252d3d);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar a {
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 20px 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.navbar a:hover::before {
+    left: 100%;
+}
+
+.navbar a:hover {
+    background: rgba(52, 152, 219, 0.2);
+    transform: translateY(-2px);
+    color: var(--secondary-color);
+}
+
+.navbar a i {
+    font-size: 1.2em;
+}
+
+.content-section {
+    padding: 40px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+    opacity: 0.3;
+}
+
+.content-section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+h2 i {
+    color: var(--secondary-color);
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+h4 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+ol {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    color: var(--light-text);
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+li:hover {
+    border-left-color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+li:hover::before {
+    opacity: 1;
+}
+
+strong {
+    color: var(--secondary-color);
+    background: rgba(52, 152, 219, 0.15);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+mark {
+    background: var(--honey-color);
+    color: #000;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.warning {
+    background: linear-gradient(135deg, #d3862f, #c62828);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.warning::before {
+    content: '⚠️';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 4em;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+.error-item {
+    background: var(--item-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+
+.error-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0.3;
+}
+
+.error-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.2);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.error-code {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.error-description {
+    margin-bottom: 15px;
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.solution {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 15px 15px 15px 50px;
+    border-radius: 8px;
+    border-left: 4px solid var(--success-color);
+    position: relative;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.solution::before {
+    content: "🛠️";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+}
+
+.interactive-button {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.interactive-button:hover::before {
+    left: 100%;
+}
+
+.interactive-button:hover {
+    background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.support-card {
+    background: var(--item-bg);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.support-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+    background: rgba(46, 204, 113, 0.05);
+}
+
+.support-card i {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.support-card h3 {
+    color: var(--light-text);
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.support-card p {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.support-card a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.support-card a:hover {
+    text-decoration: underline;
+}
+
+.support-desc {
+    color: var(--muted-text);
+    font-size: 0.95em;
+}
+code {
+    background: var(--item-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--honey-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+a:hover {
+    color: var(--honey-color);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+.element-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.element-card {
+    background: var(--item-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.element-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), transparent);
+    opacity: 0.3;
+}
+
+.element-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.element-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.element-card:hover .element-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.element-title {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.element-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.element-card:hover .element-title::after {
+    width: 100%;
+}
+
+.element-description {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+/* Турнир */
+.tournament-container {
+    background: linear-gradient(135deg, #1a1f2e, #252d3d);
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.tournament-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.medal-platform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #1e3a5f, #2a5a8f);
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.medal-platform::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.05) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255,255,255,0.05) 50%,
+        rgba(255,255,255,0.05) 75%,
+        transparent 75%);
+    transform: rotate(30deg);
+    z-index: 1;
+    animation: medalPattern 20s linear infinite;
+}
+
+@keyframes medalPattern {
+    0% { transform: translateY(0) rotate(30deg); }
+    100% { transform: translateY(-100%) rotate(30deg); }
+}
+
+.medal-platform div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.medal-platform div:hover {
+    transform: scale(1.05);
+}
+
+.gold-medal {
+    background: linear-gradient(135deg, #FFD700, #DAA520);
+    color: #000;
+    animation: medalGlow 2s infinite;
+}
+
+.silver-medal {
+    background: linear-gradient(135deg, #C0C0C0, #808080);
+    color: white;
+}
+
+.bronze-medal {
+    background: linear-gradient(135deg, #CD7F32, #804A00);
+    color: white;
+}
+
+@keyframes medalGlow {
+    0% { filter: brightness(1); box-shadow: 0 0 10px #FFD700; }
+    50% { filter: brightness(1.2); box-shadow: 0 0 20px #FFD700; }
+    100% { filter: brightness(1); box-shadow: 0 0 10px #FFD700; }
+}
+
+.tournament-rules {
+    color: var(--light-text);
+}
+
+.tournament-rules ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tournament-rules li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    color: var(--light-text);
+}
+
+.tournament-rules li:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateX(10px);
+}
+
+.tournament-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.feature-card {
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.2);
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-color);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.feature-icon.danger {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.feature-icon.elite {
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.reward-item {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.reward-item:hover {
+    transform: translateY(-5px);
+}
+
+.reward-item i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.challenge-types {
+    margin-top: 40px;
+}
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.challenge-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+}
+
+.challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.difficulty-meter {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff3838);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.meter-fill::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    width: 10px;
+    height: 14px;
+    background: #fff;
+    clip-path: polygon(50% 0%, 100% 25%, 50% 100%, 0% 25%);
+}
+
+.tournament-leaderboard {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.leaderboard-top10 {
+    list-style: none;
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.leaderboard-top10 li {
+    padding: 15px;
+    margin: 8px 0;
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--light-text);
+    border: 1px solid transparent;
+}
+
+.leaderboard-top10 li:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(5px);
+    border-color: var(--secondary-color);
+}
+
+.gold { background: linear-gradient(90deg, rgba(255,215,0,0.1), transparent); }
+.silver { background: linear-gradient(90deg, rgba(192,192,192,0.1), transparent); }
+.bronze { background: linear-gradient(90deg, rgba(205,127,50,0.1), transparent); }
+
+.rank {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.player-name {
+    font-family: 'Courier New', monospace;
+    color: var(--honey-color);
+}
+
+.level::before { content: "📈 "; }
+.accuracy::before { content: "🎯 "; }
+.points::before { content: "🏅 "; }
+
+/* Версии */
+.version-timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.version-cluster {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: var(--item-bg);
+    border-radius: 12px;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.version-cluster:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.2);
+    border-left-color: var(--accent-color);
+}
+
+.cluster-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.version-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.version-item:hover {
+    background: rgba(52, 152, 219, 0.1);
+    transform: translateX(5px);
+    border-color: var(--secondary-color);
+}
+
+.version-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+}
+
+.version-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.badge-beta {
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    color: white;
+}
+
+.badge-dev {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    color: white;
+}
+
+.badge-snapshot {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+}
+.badge-none {
+    background: linear-gradient(
+        135deg,
+        #006aa7,
+        #1d8bc0,
+        #40a8e0
+    );
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+.badge-unstable {
+    background: linear-gradient(135deg, #55c03b, #27bb60);
+    color: white;
+}
+.version-description {
+    color: var(--light-text);
+    line-height: 1.7;
+    margin-top: 8px;
+    font-size: 0.95em;
+}
+
+.version-description ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.version-description li {
+    margin-bottom: 6px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--light-text);
+}
+
+.version-description li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.search-box {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    position: sticky;
+    top: 60px;
+    z-index: 200;
+    background: var(--card-bg);
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: var(--item-bg);
+    color: var(--light-text);
+}
+
+.search-box input::placeholder {
+    color: var(--muted-text);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.search-box button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+#noResults {
+    animation: fadeIn 0.5s ease;
+    font-size: 1.2em;
+    margin: 30px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.info-box {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+    border: 1px solid var(--border-color);
+}
+
+.info-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.info-box p {
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.placeholder-content {
+    text-align: center;
+    padding: 40px;
+    background: var(--item-bg);
+    border-radius: 10px;
+    border: 2px dashed var(--border-color);
+}
+
+.placeholder-content i {
+    font-size: 4em;
+    color: var(--muted-text);
+    margin-bottom: 20px;
+}
+
+.placeholder-content h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.placeholder-content p {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--primary-color), #0a0e13);
+    color: var(--light-text);
+    margin-top: 40px;
+    position: relative;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--success-color));
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    
+    .navbar a {
+        justify-content: center;
+    }
+    
+    .content-section {
+        padding: 20px;
+    }
+    
+    .element-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tournament-header {
+        grid-template-columns: 1fr;
+    }
+    
+    .solution {
+        padding-left: 20px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .cluster-title {
+        font-size: 1.1em;
+        padding: 10px 12px;
+    }
+
+    .version-item {
+        padding: 12px;
+    }
+
+    .version-number {
+        font-size: 1em;
+    }
+
+    .version-description {
+        font-size: 0.9em;
+    }
+
+    .leaderboard-top10 li {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 5px;
+    }
+
+    .level, .accuracy, .points {
+        grid-column: 2;
+    }
+}
+
+#tips {
+    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        inset 0 2px 8px rgba(255, 255, 255, 0.05);
+    margin: 30px auto;
+    max-width: 1000px;
+    border: 1px solid #373737;
+    position: relative;
+    overflow: hidden;
+}
+
+#tips::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    opacity: 0.6;
+}
+
+#tips h2 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+#tips h2 i {
+    color: #f39c12;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#tips h2:hover i {
+    transform: rotate(15deg) scale(1.1);
+    color: #ffc107;
+}
+
+/* Контейнер карточек */
+.tips-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Карточка совета */
+.tip-card {
+    background: linear-gradient(145deg, #252d3d, #1e2633);
+    border-radius: 16px;
+    padding: 28px;
+    width: 50%;
+    min-height: 230px;
+    box-shadow: 
+        0 6px 16px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-align: center;
+    border: 1px solid #3a4556;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}
+
+.tip-card::before {
+    content: '🔥';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.tip-card:hover::before {
+    opacity: 1;
+}
+
+.tip-card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 
+        0 16px 32px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(52, 152, 219, 0.2);
+    border-color: #4a90e2;
+    z-index: 10;
+}
+
+.tip-card i {
+    font-size: 56px;
+    color: #3498db;
+    margin-bottom: 18px;
+    transition: all 0.4s ease;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tip-card:hover i {
+    transform: scale(1.3) rotate(15deg);
+    color: #5dade2;
+    text-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+.tip-card h3 {
+    color: #ecf0f1;
+    margin: 14px 0;
+    font-size: 19px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.tip-card p {
+    color: #bdc3c7;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.tip-card:hover h3,
+.tip-card:hover p {
+    color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #tips {
+        padding: 30px 15px;
+        margin: 20px 10px;
+    }
+    .tips-container {
+        gap: 20px;
+    }
+    .tip-card {
+        width: 100%;
+        max-width: 280px;
+        padding: 24px;
+    }
+    #tips h2 {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="img/icon.jpg" alt="Иконка Тренажёра Слов" class="app-icon">
+            <h1>Тренажёр Слов</h1>
+            <p>Полное руководство по установке, использованию и устранению неполадок</p>
+        </div>
+
+        <div class="navbar">
+            <a href="#installation"><i class="fas fa-download"></i> Установка</a>
+            <a href="#tips"><i class="fas fa-lightbulb"></i> Советы по прохождению</a>
+            <a href="#support"><i class="fas fa-life-ring"></i> Поддержка</a>
+            <a href="#elements"><i class="fas fa-puzzle-piece"></i> Элементы</a>
+            <a href="#tournament"><i class="fas fa-trophy"></i> Турнир</a>
+            <a href="#versions"><i class="fas fa-code-branch"></i> Версии</a>
+            <a href="#errors"><i class="fas fa-bug"></i> Ошибки</a>
+        </div>
+
+        <!-- Раздел "Установка" -->
+        <div id="installation" class="content-section">
+            <h2><i class="fas fa-download"></i> Установка</h2>
+            <ol>
+                <li>
+                    <strong>Шаг 1:</strong> Зайдите в Telegram канал <a href="https://t.me/fromjavatoapp" target="_blank">@fromjavatoapp</a>.
+                </li>
+                <li>
+                    <strong>Шаг 2:</strong> Выберите любую версию с 1.19.9 (на старых версиях могут возникнуть проблемы).
+                </li>
+                <li>
+                    <strong>Шаг 3:</strong> Установите zip архив и разархивируйте его.
+                </li>
+                <li>
+                    <strong>Шаг 4:</strong> Запустите файл <code>WordCraft.exe</code>. Если вылетела ошибка - следуйте шагу 4.1.
+                </li>
+                <li>
+                    <strong>Шаг 4.1:</strong> Установите JRE (Java) и запустите приложение снова.
+                </li>
+                <li>
+                    <strong>Шаг 5:</strong> Создайте свой аккаунт, следуя шагам: Настройки (кнопка с шестерёнкой) → Логин/Регистрация → Ввод пароля и выбор языка.
+                </li>
+            </ol>
+            <p>Теперь Вы можете начать играть!</p>
+        </div>
+
+        <!-- Раздел "Элементы игры" -->
+        <div id="elements" class="content-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Элементы игры</h2>
+            
+            <div class="element-grid">
+                <!-- Слова -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-font"></i></div>
+                    <div class="element-title">Слова</div>
+                    <div class="element-description">
+                        Основные элементы игры. Набирайте слова правильно и быстро, чтобы продвигаться по уровням. 
+                        Каждое правильно набранное слово приносит очки и приближает к цели уровня.
+                    </div>
+                </div>
+
+                <!-- Слова подряд -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="element-title">Слова подряд</div>
+                    <div class="element-description">
+                        Комбо из правильно набранных слов без ошибок. Чем длиннее серия, тем больше бонусных очков вы получаете. 
+                        Старайтесь не прерывать цепочку!
+                    </div>
+                </div>
+
+                <!-- Усложненный таймер -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-hourglass-start"></i></div>
+                    <div class="element-title">Усложненный таймер</div>
+                    <div class="element-description">
+                        В течении времени, указанном на таймере, набирайте слова безошибочно. Если вы ошибётесь, то вы проиграете!
+                    </div>
+                </div>
+
+                <!-- Кирпичи -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-cube"></i></div>
+                    <div class="element-title">Кирпичи</div>
+                    <div class="element-description">
+                        Обычные строительные блоки. Набирайте слова правильно, чтобы складывать их в ряд. Если вы ошибётесь, то 2 кирпича разобьются.
+                    </div>
+                </div>
+
+                <!-- Мёд -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-jar"></i></div>
+                    <div class="element-title">Мёд</div>
+                    <div class="element-description">
+                        Мёд появляется раз в 3 хода и собрать его можно лишь раз. Вы поймёте, что на слове мёд, когда увидите, что оно жёлтое.
+                    </div>
+                </div>
+
+                <!-- Пена -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-soap"></i></div>
+                    <div class="element-title">Пена</div>
+                    <div class="element-description">
+                        Противная штука. Когда пена есть, то у вас больше нет лимита ошибок. Но при неправильном введении слова, пена распространяется, заражая всё вокруг.
+                    </div>
+                </div>
+
+                <!-- Блоки -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-cubes"></i></div>
+                    <div class="element-title">Блоки</div>
+                    <div class="element-description">
+                        Укреплённые кирпичи. Требуют больше усилий для разрушения, так как вам нужно набирать слова безошибочно, чтобы разбить их.
+                    </div>
+                </div>
+
+                <!-- Слизь -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-droplet"></i></div>
+                    <div class="element-title">Слизь</div>
+                    <div class="element-description">
+                        Липкое вещество. Каждый ход оно может с шансом 50% выскользнуть из поля и вы ничего не получите.
+                    </div>
+                </div>
+
+                <!-- Яблоки -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-apple-alt"></i></div>
+                    <div class="element-title">Яблоки</div>
+                    <div class="element-description">
+                        В зависимости от набранных подряд слов вы получаете больше яблок. Меньше 5 - 1 яблоко за ход, от 5 до 15 - 2 яблока, больше 15 - 3 яблока.
+                    </div>
+                </div>
+
+                <!-- Коробки с кирпичами -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-box-open"></i></div>
+                    <div class="element-title">Коробки с кирпичами</div>
+                    <div class="element-description">
+                        Легкий способ получить кирпичи, но также и проиграть. Набирайте слова слова без ошибок, чтобы разрушить ящик и получить 9 кирпичей. Но если вы будете медлить, то придется начать сначала.
+                    </div>
+                </div>
+
+                <!-- Гири -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <div class="element-title">Гири</div>
+                    <div class="element-description">
+                        Тяжёлые элементы. Нужно набирать слова правильно, чтобы не сбросить гири вниз. Цель: поднять гири до самого верха.
+                    </div>
+                </div>
+
+                <!-- Супер пена -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-smog"></i></div>
+                    <div class="element-title">Супер пена</div>
+                    <div class="element-description">
+                        Очень похожа на пену, но в два раза опаснее. При ошибке вы получаете 2 супер пены, которые распространяются на всё поле, но также она отнимет у вас время.
+                    </div>
+                </div>
+
+                <!-- Усложнители -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-radiation"></i></div>
+                    <div class="element-title">Усложнители</div>
+                    <div class="element-description">
+                        Специальный датчик, который реагирует на ошибки. При неправильном вводе слова, он усложняет вам игру путем добавления новых элементов.
+                    </div>
+                </div>
+
+                <!-- Цвета -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-palette"></i></div>
+                    <div class="element-title">Цвета</div>
+                    <div class="element-description">
+                        Каждое слово имеет свой цвет. Набирайте слова правильно, чтобы разукрасить палитру и пройти уровень.
+                    </div>
+                </div>
+                 <!-- Цвета -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-suitcase"></i></div>
+                    <div class="element-title">Футляр</div>
+                    <div class="element-description">
+                       Чтобы убрать футляр, нужно набрать два слов подряд, причём одно из них без ошибки, иначе он закроется и процесс придётся начинать сначала.
+                    </div>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-clock"></i></div>
+                    <div class="element-title">Часы</div>
+                    <div class="element-description">
+                        Набирайте слова, и с 20-40% шансом часы разобьются и дадут 5 дополнительных секунд на усложнённом таймере.
+                    </div>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-oil-can"></i></div>
+                    <div class="element-title">Масло</div>
+                    <div class="element-description">
+                        Набирайте слова без ошибки, чтобы слить масло в кувшин. Ошибки заставят масло растечься и испортить ваши результаты!
+                    </div>
+                </div>
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-key"></i></div>
+                    <div class="element-title">Замок</div>
+                    <div class="element-description">
+                        Замок блокирует все цели на уровне, кроме него самого. Наберите 3 слова, причём правильно, чтобы открыть его, но через 2-6 ходов он закроется!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Раздел "Другие элементы" -->
+        <div id="other-elements" class="content-section">
+            <h2><i class="fas fa-star"></i> Другие элементы</h2>
+            
+            <div class="element-grid">
+                <!-- Бустер "+2 ошибки" -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+                    <div class="element-title">Бустер "+2 ошибки"</div>
+                    <div class="element-description">
+                        Добавляет 2 дополнительные попытки на уровне. Не работает в режиме усложнённого таймера. Спасает в критических ситуациях!
+                    </div>
+                </div>
+
+                <!-- Бустер "Дополнительное время" -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-hourglass-half"></i></div>
+                    <div class="element-title">Бустер "Дополнительное время"</div>
+                    <div class="element-description">
+                        Добавляет +15 секунд к таймеру. Незаменим на сложных уровнях с ограниченным временем.
+                    </div>
+                </div>
+
+                <!-- Бустер "Упрощение уровня" -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-feather-alt"></i></div>
+                    <div class="element-title">Бустер "Упрощение уровня"</div>
+                    <div class="element-description">
+                        Делает слова на 30% короче и проще. Идеален для прохождения сложных уровней с первого раза.
+                    </div>
+                </div>
+
+                <!-- Рейтинги -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="element-title">Рейтинги</div>
+                    <div class="element-description">
+                        Сравнивайте свои результаты с другими игроками. Поднимайтесь в таблице лидеров и докажите своё мастерство!
+                    </div>
+                </div>
+
+                <!-- События -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="element-title">События</div>
+                    <div class="element-description">
+                        Специальные временные мероприятия с уникальными механиками. Участвуйте в событиях, чтобы получить эксклюзивные награды, которых нет в обычной игре!
+                    </div>
+                </div>
+
+                <!-- Достижения -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="element-title">Достижения</div>
+                    <div class="element-description">
+                        Выполняйте различные задачи и открывайте достижения. Коллекционируйте их все для получения особых наград.
+                    </div>
+                </div>
+
+                <!-- Карты -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="element-title">Карты</div>
+                    <div class="element-description">
+                        Собирайте карты из сундуков и событий и улучшайте их. Соберите их все!
+                    </div>
+                </div>
+
+                <!-- Магазин -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="element-title">Магазин</div>
+                    <div class="element-description">
+                        Приобретайте бустеры, скины и особые предметы за внутриигровую валюту. Улучшайте свой игровой опыт!
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="element-title">Статистика</div>
+                    <div class="element-description">
+                        Подробная аналитика вашей игры: скорость печати, точность, прогресс. Следите за своим улучшением!
+                    </div>
+                </div>
+                <!-- Статистика -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="element-title">Опыт</div>
+                    <div class="element-description">
+                        Получайте опыт за набранные буквы и получайте награды.
+                    </div>
+                </div>
+                <!-- Статистика -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-question-circle"></i></div>
+                    <div class="element-title">Поддержка</div>
+                    <div class="element-description">
+                       Узнайте базовую инфомацию об игре и обновлении.
+                    </div>
+                </div>
+                <!-- Настройки -->
+                <div class="element-card">
+                    <div class="element-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="element-title">Настройки игры</div>
+                    <div class="element-description">
+                        Кастомизируйте интерфейс, регулируйте звук и настраивайте управление под свой стиль игры.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+      <!-- Раздел "Коды ошибок" -->
+<div id="errors" class="content-section">
+    <div class="warning">
+        <i class="fas fa-exclamation-triangle"></i> Внимание: коды ошибок появились на версии 1.20.5!
+    </div>
+    <h2><i class="fas fa-bug"></i> Коды ошибок и действия при них</h2>
+    
+    <!-- Ошибка 0x000000A7 -->
+    <div class="error-item">
+        <div class="error-code">0x000000A7</div>
+        <div class="error-description">Эта ошибка незначительна. Приложение не может определить уровень сложности из-за неизвестных данных.</div>
+        <div class="solution">Приложение исправит ошибку автоматически, поэтому просто закройте окно. Если ошибка повторяется, проверьте целостность файлов конфигурации.</div>
+    </div>
+
+    <!-- Ошибка 0x000000B9 -->
+    <div class="error-item">
+        <div class="error-code">0x000000B9</div>
+        <div class="error-description">Эта ошибка довольно критическая. Игра не может найти необходимую папку или файл. В сообщении об ошибке указано имя недостающего файла.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Проверьте, не были ли удалены важные папки приложения</li>
+                <li>Попробуйте переустановить приложение</li>
+                <li>Включите "Предупреждения" в настройках для получения дополнительной информации</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Проверьте наличие всех папок приложения и переустановите его при необходимости.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000C1 -->
+    <div class="error-item">
+        <div class="error-code">0x000000C1</div>
+        <div class="error-description">Эта ошибка критическая. Игра не может сохранить данные в указанный файл. Обычно это связано с проблемами доступа к файловой системе.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Запустите игру от имени администратора</li>
+                <li>Проверьте, достаточно ли свободного места на диске</li>
+                <li>Убедитесь, что папка приложения не защищена от записи</li>
+                <li>Если проблема сохраняется, переустановите приложение</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Запустите игру от имени администратора и проверьте место на диске.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000G3 -->
+    <div class="error-item">
+        <div class="error-code">0x000000G3</div>
+        <div class="error-description">Эта ошибка критическая. Игра не может загрузить данные из файла. Возможно, файл повреждён или недоступен.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Запустите игру от имени администратора</li>
+                <li>Проверьте права доступа к файлам приложения</li>
+                <li>Попробуйте удалить кэш приложения и перезагрузить его</li>
+                <li>При необходимости переустановите приложение</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Запустите игру от имени администратора и проверьте права доступа.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000D5 -->
+    <div class="error-item">
+        <div class="error-code">0x000000D5</div>
+        <div class="error-description">Эта ошибка практически нигде не встречается. Какое-то число вышло за допустимые границы. В сообщении указаны: значение числа и допустимый диапазон.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Нажмите F4 для попытки автоматического исправления</li>
+                <li>Проверьте параметры уровня в файле конфигурации</li>
+                <li>Если ошибка повторяется, обратитесь в поддержку</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Нажмите F4 для исправления ошибки или обратитесь в поддержку.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000F6 -->
+    <div class="error-item">
+        <div class="error-code">0x000000F6</div>
+        <div class="error-description">Эта ошибка очень распространена. Игра не может найти пользователя с указанным именем или пользователь не идентифицирован корректно.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Включите "Предупреждения" в настройках для расширенной информации</li>
+                <li>Попробуйте создать новый профиль пользователя</li>
+                <li>Проверьте, что имя пользователя введено корректно</li>
+                <li>Если проблема сохраняется, обратитесь в поддержку</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Включите предупреждения и проверьте имя пользователя.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000M0 -->
+    <div class="error-item">
+        <div class="error-code">0x000000M0</div>
+        <div class="error-description">Эта ошибка указывает на проблему инициализации. Переменная, необходимая для работы приложения, не была инициализирована. Название переменной указано в сообщении об ошибке.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Перезагрузите приложение</li>
+                <li>Очистите кэш приложения</li>
+                <li>Проверьте целостность установки</li>
+                <li>При необходимости переустановите приложение</li>
+                <li>Если ошибка повторяется, обратитесь в поддержку с указанием названия переменной</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Перезагрузите приложение и очистите кэш.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Ошибка 0x000000I1 -->
+    <div class="error-item">
+        <div class="error-code">0x000000I1</div>
+        <div class="error-description">Эта ошибка критическая. Указанный файл повреждён и не может быть использован приложением. Название повреждённого файла указано в сообщении об ошибке.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Попробуйте удалить повреждённый файл и перезагрузить приложение</li>
+                <li>Если файл восстанавливается автоматически, проблема может быть в системе</li>
+                <li>Проверьте целостность установки приложения</li>
+                <li>Переустановите приложение, если ошибка повторяется</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Удалите повреждённый файл и перезагрузите приложение.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Предупреждение 0x00a1 -->
+    <div class="error-item" style="border-left-color: var(--warning-color); background: rgba(243, 156, 18, 0.08);">
+        <div class="error-code" style="color: var(--warning-color);">⚠️ 0x00a1 (Предупреждение)</div>
+        <div class="error-description">Это предупреждение, а не критическая ошибка. Число строк вышло за допустимые границы. Это может привести к неверному размеру кнопок и элементов интерфейса.</div>
+        <div class="solution" style="background: rgba(243, 156, 18, 0.1); border-left-color: var(--warning-color);">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Это предупреждение обычно не критично и не требует действий</li>
+                <li>Если интерфейс отображается неправильно, перезагрузите приложение</li>
+                <li>Проверьте разрешение экрана и размер окна</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Это предупреждение. Перезагрузите приложение, если интерфейс отображается неправильно.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+
+    <!-- Информационная панель -->
+    <div class="info-box" style="margin-top: 30px;">
+        <h3><i class="fas fa-info-circle"></i> Справка по кодам ошибок</h3>
+        <p><strong>Критические ошибки (0x000000...):</strong> Требуют немедленного действия. Приложение может работать нестабильно.</p>
+        <p><strong>Предупреждения (0x00...):</strong> Информационные сообщения. Приложение продолжит работу, но возможны проблемы с отображением.</p>
+        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color);"><strong>Если ошибка не указана в этом списке:</strong> Обратитесь в <a href="https://t.me/fromjavatoapp" target="_blank">поддержку</a> с полным текстом ошибки.</p>
+    </div>
+</div>
+
+  <!-- Раздел "Версии" -->
+        <div id="versions" class="content-section">
+            <h2><i class="fas fa-code-branch"></i> История версий приложения</h2>
+            
+            <div class="search-box">
+                <input type="text" id="versionSearch" placeholder="Поиск версии (например: 1.20.0)...">
+                <button onclick="searchVersions()"><i class="fas fa-search"></i> Поиск</button>
+            </div>
+            <div class="version-timeline" id="versionTimeline">
+
+                <!-- Кластер 1 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎮 Кластер 1: Базовая игра</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.0.0 <span class="version-badge badge-beta">БЕТА</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Основа игры</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.0.1 <span class="version-badge badge-dev">В разработке</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Настройки и уровни</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 2 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🔘 Кнопочное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Переработка кнопок и новый вид настроек.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлена механика уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Убраны ненужные кнопки, исправлены баги.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлена ошибка, связанная с отрицательным временем.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Метка статуса и цель уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.1.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Звуки клика.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 3 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">📊 Уровневое обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Механика времени и анимация прохождения уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлен баг с появлением нескольких окон.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлены новые слова.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлены звуки завершения уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Панели "Слов набрано" и "Комбо".</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Цвет панели "Комбо" теперь изменяется.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.6<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">9 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.7<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлена ошибка с неверным отображением цели.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.8</div>
+                        <div class="version-description">Обновлена генерация слов.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.2.9<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлен уровень слов (от 3 до 8).</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 4 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">✨ Анимационное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.3.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлены новые анимации.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.3.1</div>
+                        <div class="version-description"><ul>
+                            <li>Улучшение настроек</li>
+                            <li>Добавление новой кнопки.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кластер 5 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">💾 Сохранённое обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Теперь игра сохраняет ваш прогресс!</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлено 20 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлен баг в автоматическим проходжением уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлены незначительные баги.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлено 20 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">05w01a<span class="version-badge badge-snapshot">СНАПШОТ</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Панель с бустерами! (В разработке)</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">05w01b<span class="version-badge badge-snapshot">СНАПШОТ</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Механика сохранений обновлена и теперь включает бустеры! (В разработке)</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">05w01с<span class="version-badge badge-snapshot">СНАПШОТ</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Механика получения монет после уровня!</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.4.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлено обучение в настройках.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 6 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">⚡ Бустерное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Механка бустеров.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">10 новых уровней и другие исправления.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлено новое применение бустера "+2 ошибки".</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлена кнопка "Сбросить прогресс" в настройках.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Улучшено обучение.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.5.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Игра оптимизирована, добавлены новые анимации.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 7 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎯 Целевое обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Динамическое обновление целей во время игры.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлены значительные ошибки со временем.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Переработаны цвета некоторых панелей и кнопок.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Оптимизация кода.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">3 новых уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.6.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">7 новых уровней.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 8 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">👤 Обновление аккаунтов</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Теперь вы сможете играть со своими друзьями.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Аккуанты перенесены в новую папку users.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Ускорено прохождение уровня.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Теперь вы можете поставить пароль на аккаунт.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлено больше интерактивности.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Обновлены списки слов.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.6<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">30 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.7<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Теперь если вы не введёте имя, а имя "Гость" уже существует, прогресс "Гостя" сбросится.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.8<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Облегчение механики кирпичей и мёда.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.9<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавлена проверка на таймере времени (то есть вы проиграете не сразу).</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.10<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">10 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.11<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлена критическая ошибка с автоматическим выходом из игры.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.12<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Распределение файлов по папкам.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.13<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Усложнение 90% уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.14<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлен баг на уровне 100.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.15<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description"><ul><li>10 новых уровней.</li>
+                            <li>Улучшение выдачи монет.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.7.16<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлен баг с сохранением сложности.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 9 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎪 Обновление событий</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Крупное обновление
+                            <ul>
+                                <li>Кнопка "Событие".</li>
+                                <li>Сохранение новых данных.</li>
+                                <li>Проверка используемой памяти.</li>
+                                <li>Оптимизация кода.</li>
+                                <li>Исправлено 120 ошибок.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Теперь вы можете закрыть окно "Уровень завершён" лишь через несколько секунд.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлен баг с отрицательным временем.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Исправлены баги при прохождении уровня и сохранении прогресса.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Улучшено событие.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.8.5<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">20 новых уровней.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 10 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎪 Обновление событий 2</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.9.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Добавление второго события!
+                            <ul>
+                                <li>Добавление данных в "Сохранения".</li>
+                                <li>Новые анимации.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.9.1</div>
+                        <div class="version-description">Удалены повторяющиеся слова!</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 11 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">📊 Обновление рейтингов</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Кнопка "Рейтингов".</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Сохранение версии в сохранениях.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Кнопка "Рейтинги" теперь появляется только если игрок дошёл до уровня 16.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.3<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Кнопка "Обучение" в настройках.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.4<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">10 новых уровней, перемещение кнопки "Рейтинги".</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.7<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">20 новых уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.8<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Панель ошибок и усложнение уровней.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.10.10<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">20 новых уровней, исправлены баги.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 12 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎨 Графическое обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.11.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Все действия приложения теперь в одном окне.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 13 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">❤️ Обновление жизней</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.12.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Механика жизней. Пополняются каждые 20 минут.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13 Snapshot_Series (UNDONE)<span class="version-badge badge-snapshot">СНАПШОТ</span><span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Серия снапшотов с добавлением наград, магазина и карт в событиях.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 14 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🔘 Обновление кнопок</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13.0<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">
+                            <ul>
+                                <li>Новый вид кнопок.</li>
+                                <li>Кнопки "Магазин" и "Карты".</li>
+                                <li>Исправлены баги с жизнями.</li>
+                                <li>Исправлена критическая ошибка с авто-проигрышем.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13.1<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">
+                            <ul>
+                                <li>Исправлен ещё один баг с авто-проигрышем.</li>
+                                <li>Исправлены баги с картами.</li>
+                                <li>Усложнения и упрощения игрового процесса.</li>
+                                <li>Новые шрифты и цвета.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13.2<span class="version-badge badge-none">НЕ ВЫПУЩЕНО</span></div>
+                        <div class="version-description">Усложнения закончены на 70%!</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13.3</div>
+                        <div class="version-description">Оптимизация кода в 2 раза!</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.13.4</div>
+                        <div class="version-description"><ul>
+                                <li>Панель с точностью.</li>
+                                <li>Оптимизация игры.</li>
+                                <li>Обновление рейтингов.</li>
+                                <li>10 новых уровней.</li>
+                            </ul></div>
+                    </div>
+                </div>
+
+                <!-- Кластер 15 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🌍 Расширенное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.14.0</div>
+                        <div class="version-description">Теперь возможен запуск игры откуда угодно.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 16 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎮 Внутриигровое обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.15.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>Добавлена кнопка паузы.</li>
+                                <li>Добавлено 7 новых звуков.</li>
+                                <li>Улучшена кнопка перезапуска.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кластер 17 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🎨 Графическое обновление II</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.16.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>35 новых уровней.</li>
+                                <li>Обновлённая панель точности.</li>
+                                <li>Улучшенная регистрация.</li>
+                                <li>Обновлённые кнопки и панель.</li>
+                                <li>Исправлены баги.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.16.1</div>
+                        <div class="version-description">Исправлена 1 ошибка в папке users.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.16.2</div>
+                        <div class="version-description"><ul><li>5 новых уровней.</li><li>2 исправленных бага.</li></ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.16.3</div>
+                        <div class="version-description"><ul>
+                            <li>Исправлено 7 багов.</li>
+                            <li>Добавлена арка с уровнем.</li>
+                            <li>Улучшены цвета у "Точности".</li>
+                        </ul></div>
+                    </div>
+                </div>
+
+                <!-- Кластер 18 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🔘 Обновление кнопок II</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.17.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>20 новых уровней.</li>
+                                <li>Новое событие.</li>
+                                <li>Две новых кнопки.</li>
+                                <li>Панель загрузки.</li>
+                                <li>Исправление багов.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="version-cluster">
+                    <div class="cluster-title">✨ Современное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.0</div>
+                        <div class="version-description">Запуск через файл start.bat</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.1</div>
+                        <div class="version-description"><ul>
+                            <li>Улучшена панель с точностью.</li>
+                            <li>10 новых уровней.</li>
+                            <li>Исправлены баги.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.3</div>
+                        <div class="version-description">Исправлен баг с отображением уровня слов.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.5</div>
+                        <div class="version-description"><ul>
+                            <li>Исправление бага с новой кнопкой в настройках.</li>
+                            <li>10 новых уровней.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.7</div>
+                        <div class="version-description"><ul>
+                            <li>Панель с полным названием версии в настройках.</li>
+                            <li>Добавление Олимпийского Турнира.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.8</div>
+                        <div class="version-description"><ul>
+                            <li>50 новых уровней в олимпийском турнире.</li>
+                            <li>Новые подсказки.</li>
+                            <li>Новый дизайн.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.18.9</div>
+                        <div class="version-description"><ul>
+                            <li>Новые анимации.</li>
+                            <li>Исправления багов.</li>
+                            <li>15 новых уровней в Олимпийском турнире.</li>
+                        </ul></div>
+                    </div>
+                </div>
+
+                <!-- Кластер 19 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🖼️ Изобразительное обновление</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>Исправлено 13 багов прошлых обновлений.</li>
+                                <li>Улучшена панель с бустерами.</li>
+                                <li>Изображения к кнопкам.</li>
+                                <li>Изменены цвета некоторых объектов.</li>
+                                <li>Исправлена ошибка с точностью.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.1</div>
+                        <div class="version-description">Полностью переработана поддержка, теперь в ней новые цвета, шрифты и изображения!</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.2</div>
+                        <div class="version-description"><ul>
+                            <li>Обновление обучения в настройках.</li>
+                            <li>20 новых уровней.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.3</div>
+                        <div class="version-description"><ul>
+                            <li>Исправлен баг с авторизацией.</li>
+                            <li>Улучшен интерфейс настроек.</li>
+                            <li>Добавлено 15 уровней в Олимпийском турнире.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.4</div>
+                        <div class="version-description"><ul>
+                            <li>Новые анимации кнопок.</li>
+                            <li>40 новых уровней в Олимпийском турнире.</li>
+                            <li>Использование более точного и менее затратного счётчика времени.</li>
+                        </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.5</div>
+                        <div class="version-description">Исправлен баг, из-за которого вы могли буквально играть без времени.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.6</div>
+                        <div class="version-description">Добавлено предложение продолжить игру за виртуальную валюту.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.7</div>
+                        <div class="version-description"><strong>Пакет 1:</strong> Исправлено множество багов при завершении уровня.
+                            <br><strong>Пакет 2:</strong> Исправлены незначительные баги и добавлено 35 уровней в Олимпийском Турнире.
+                            <br><strong>Пакет 3:</strong> Добавлено 35 новых уровней! Случайные уровни теперь подбираются по уровню сложности.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.8</div>
+                        <div class="version-description">Исправлены серьёзные баги с временем.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.19.9</div>
+                        <div class="version-description">Полностью переработан код, новые цвета точности.</div>
+                    </div>
+                </div>
+
+                <!-- Кластер 20 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">📊 Уровневое обновление II</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>60 новых уровней.</li>
+                                <li>Улучшение панели загрузки.</li>
+                                <li>Улучшение рейтингов и событий.</li>
+                                <li>Обновление интерфейса.</li>
+                                <li>Исправление багов со временем.</li>
+                                <li>Сбор данных уровня и их загрузка.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.1</div>
+                        <div class="version-description"><ul>
+                                <li>Исправлены баги.</li>
+                                <li>Кнопка статистики.</li>
+                                <li>Улучшение настроек.</li>
+                            </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.3</div>
+                        <div class="version-description"><ul>
+                                <li>Исправлены баги.</li>
+                                <li>Обновлён интерфейс.</li>
+                                <li>Добавлено 5 новых уровней.</li>
+                            </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.4</div>
+                        <div class="version-description"><ul>
+                                <li>Переработана поддержка.</li>
+                                <li>Улучшение настроек.</li>
+                                <li>Улучшение панели бустеров.</li>
+                                <li>Исправлено 15 багов.</li>
+                                <li>Улучшена механика проигрыша.</li>
+                            </ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.5</div>
+                        <div class="version-description">Исправлено 293 ошибки.</div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.6</div>
+                        <div class="version-description"><ul><li>Добавлен ввод слов на английском языке.</li> <li>Исправлено 46 багов.</li> <li>Улучшена поддержка.</li></ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.7</div>
+                        <div class="version-description"><ul><li>Исправлено 23 бага и мелких ошибок.</li> <li>Добавлен английский перевод.</li> <li>5 новых уровней.</li></ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.9</div>
+                        <div class="version-description"><ul><li>Добавление тёмной темы (в разработке).</li> <li>Исправлено 16 незначительных ошибок.</li> <li>Автоматическое определение Java (в разработке).</li></ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.10</div>
+                        <div class="version-description"><ul><li>Исправлено 20 ошибок.<li>Улучшение тёмной темы.</li> <li>Автоматическое определение Java.</li> <li>Добавлены новые кнопки.</li></ul></div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.20.11</div>
+                        <div class="version-description"><ul><li>Новый вид кнопок.</li> <li>10 новых уровней.</li> <li>Оптимизация кода.</li></ul></div>
+                    </div>
+                </div>
+
+                <!-- Кластер 21 -->
+                <div class="version-cluster">
+                    <div class="cluster-title">🏆 Обновление достижений</div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.0</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>87 ошибок исправлено.</li>
+                                <li>Анимации для кнопок, каждое нажатие теперь плавное и красивое.</li>
+                                <li>Кнопка «Достижения».</li>
+                                <li>Более 100 новых уровней.</li>
+                                <li>Шифрование данных.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.1</div>
+                        <div class="version-description">
+                            <ul>
+                            <li>Исправлено 26 багов, из них 6 критических.</li>
+                            <li>Trainer теперь — WordCraft.</li>
+                            <li>Новая система сложности.</li>
+                         </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.2</div>
+                        <div class="version-description">        
+                            <ul>
+                            <li>Исправлено 29 ошибок.</li>
+                            <li>Улучшена интерактивность целей.</li>
+                            <li>Исправлен баг с дублированием бустеров.</li>
+                            <li>Добавлено 60 новых уровней.</li>
+                    </ul>
+                    </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.3</div>
+                        <div class="version-description">
+                            <ul>
+                                <li>- Исправлено целых 493 ошибки!</li>
+                                <li>- Добавлено 80 новых уровней.</li>
+                                <li>- Улучшен интерфейс кнопок и панелей.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.4</div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Исправлено 15 ошибок.</li>
+                                <li>- Добавлена новая кнопка в настройках.</li>
+                                <li>- 5 новых уровней.</li>
+                                <li>- Улучшена интерактивность.</li>
+                                <li>- Добавлено 2 новых достижения. </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.5</div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Новая кнопка в настройках.</li>
+                                <li>- 10 новых уровней.</li>
+                                <li>- Исправлено 12 ошибок.</li>
+                                <li>- Панель "Количество слов в минуту".</li>
+                                <li>- Сжатие кода на 80-90 мегабайт.</li>
+                                <li>- Улучшение механики событий.</li>
+                                <li>- Пополнение статистики новыми вкладками.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.6</div>
+                        <div class="version-description">  
+                            <ul>
+<li>- Исправлено 22 невозможных уровня с гирями. (Баг появился на версии 1.20.2).</li>
+<li>- Добавлено 2 новых достижения.</li>
+<li>- Исправлен баг с отображением некоторых панелей.</li>
+<li>- Незначительные изменения в "Достижениях".</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                         <div class="version-number">21w06a<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description"><ul>
+                            <li>- Добавлено 50 новых уровней.</li>
+                            <li>- Добавлен функционал к неработающей кнопке в "Настройках".</li>
+                            <li>- Исправлено 7 ошибок.</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">v1.21.7</div>
+                        <div class="version-description">  
+                            <ul>
+<li>- 60+ новых уровней.</li>
+<li>- Улучшение рейтингов. Теперь вы сможете сравнивать результаты по монетам, словам и точности набора слов.</li>
+<li>- Улучшение обучающих уровней.</li>
+<li>- Исправлен баг с отрицательным временем на некоторых устройствах (чаще Windows 10 / 11).</li>
+<li>- Система бана читеров (тех, кто редактировал файлы игры).</li>
+<li>- Новая кнопка в "Настройках".</li>
+<li>- Исправлены достижения с неправильной выдачей монет.</li>
+                            </ul>
+                        </div>
+                    </div>
+                        <div class="version-item">
+                        <div class="version-number">21w07a<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Новый товар в магазине (в разработке).</li>
+                                <li>- Исправлено 8 ошибок.</li>
+                                <li>- Вкладка "Опыт" (в разработке).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">21w07b<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Исправлена странная ошибка, связанная со светлой темой.</li>
+                                <li>- Теперь вы можете использовать клавиши для изменения параметров в "Настройках".</li>
+                                <li>- Вкладка "Опыт" теперь появляется после уровня 25.</li>
+                                <li>- Наконец-то полностью завершён новый товар то магазине.</li>
+                                <li>- В сундуках теперь можно получить опыт.</li>
+                                <li>- Опыт теперь выдаётся при наборе букв.</li>
+                                <li>- Добавлена интерактивность к панели жизней, теперь вы можете видеть таймер "регенерации".</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">21w07c<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Добавлено 95 переработанных уровней.</li>
+                                <li>- Вкладка "Опыт" наконец готова.</li>
+                                <li>- Исправлено 6 ошибок.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">1.21.8 pre-1<span class="version-badge badge-beta">БЕТА</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Исправлен баг со сбрасыванием уровня слов.</li>
+                                <li>- Улучшение многих диалогов.</li>
+                                <li>- Добавлено 10 переработанных уровней.</li>
+                                <li>- Добавлена возможность сменить уровень слов при 5 поражениях подряд.</li>
+                                <li>- Улучшена поддержка.</li>
+                                <li>- Исправлено 2 ошибки с жизнями.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">1.21.8 pre-3<span class="version-badge badge-beta">БЕТА</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Добавлено 10 новых уровней</li>
+                                <li>- Улучшение диалогов.</li>
+                                <li>- Исправление багов.</li>
+                                <li>- Добавлена новая вкладка в "Рейтингах"</li>
+                                <li>- Новое достижение.</li>
+                                <li>- Исправлены ошибки, связанные с аккаунтом.</li>
+                            </ul>
+                        </div>
+                    </div>
+			<div class="version-item">
+                        <div class="version-number">1.21.8 beta-last<span class="version-badge badge-beta">БЕТА</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Добавлено 10 новых уровней</li>
+                                <li>- Исправление багов.</li>
+                                <li>- Новая система точности ввода! Теперь игра смотрит не на время, а на реальные ошибки пользователя!</li>
+                                <li>- Теперь вы можете изменять анимации закрытия окна!</li>
+                                <li>- Улучшена тёмная тема.</li>
+                                <li>- Исправлены ошибки, связанные с удалением аккунта и сбросом прогресса!</li>
+                            </ul>
+                        </div>
+                    </div>
+            <div class="version-item">
+                        <div class="version-number">1.21.8</div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Новый товар в магазине.</li>
+                                <li>- Вкладка "Опыт".</li>
+                                <li>- Таймер "регенерации" жизней.</li>
+                                <li>- Переключение настроек клавишами.</li>
+                                <li>- Добавлено 120+ новых переработанных уровней.</li>
+                                <li>- Улучшенна поддержка.</li>
+                                <li>- Новая вкладка в рейтингах.</li>
+                                <li>- Анимации закрытия окна.</li>
+                                <li>- Улучшена тёмная тема.</li>
+                                <li>- Исправлены ошибки, связанные с удалением аккаунта и сбросом прогресса.</li>
+                            </ul>
+                        </div>
+                    </div>
+                      <div class="version-item">
+                        <div class="version-number">1.21.9</div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Теперь вы можете получать уведомления об установке обновлений (сама установка обновления пока что через Max)!</li>
+                                <li>- Новая кнопка в настройках.</li>
+                                <li>- Исправлен баг с указанием клавиши одной из кнопок в настройках.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="version-item">
+                        <div class="version-number">21w10a<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Добавлено 10 новых уровней.</li>
+                                <li>- Улучшено окно обновления приложения.</li>
+                                <li>- Добавлен словарь всех слов (пока на русском языке). В нём вы сможете узнать, какие значения у неизвестных вам слов и какие ещё слова могут встретиться во время игры.</li>
+                                <li><strong>ПРИМЕЧАНИЕ:</strong> На данном снапшоте присутствует баг, в котором при заходе в меню "Словаря" все слова становятся английскими! <b>Будьте аккуратны!</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">21w10b<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Исправлено множенство ошибок в словаре.</li>
+                                <li>- Теперь все слова в словаре скрыты, и вам нужно открывать их путем набора слов.</li>
+                                <li>- Добавлено новое достижение.</li>
+                                <li>- Улучшена функция обновлений. Теперь действует версия формата 2.1.</li>
+                                <li>- Исправлен раздражающий баг с задержкой октрытия кнопки "Расширенные возможности".</li>
+                                <li>- Исправлено 15 уровней (с 205 по 220).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="version-item">
+                        <div class="version-number">21w10c<span class="version-badge badge-snapshot">СНАПШОТ</span><span class="version-badge badge-unstable">УДАЛЕНО</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>Обновлённый раздел "Карты" (В разработке).</li>
+                                <li>Переделанны директории.</li>
+                                <li>Исправлены баги.</li>
+                            </ul>
+                        </div>
+                    </div>,<div class="version-item">
+                        <div class="version-number">21w10d<span class="version-badge badge-snapshot">СНАПШОТ</span></div>
+                        <div class="version-description">  
+                            <ul>
+                                <li>- Исправлены баги прошлых снапшотов.</li>
+                                <li>- Передалана механика карт (в разработке).</li>
+                                <li>- Произведено сжатие приложения на 40 мегабайт.</li>
+                                <li>- Перенос некоторых папок в AppData игры.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+   <!-- Раздел "Советы по прохождению" -->
+<div id="tips" class="content-section">
+    <h2><i class="fas fa-lightbulb"></i> Советы по прохождению</h2>
+    <div class="tips-container">
+        <div class="tip-card">
+            <i class="fas fa-keyboard"></i>
+            <h3>Не смотрите на клавиатуру</h3>
+            <p>Тренируйтесь печатать вслепую — это ключ к высокой скорости и точности.</p>
+            <p>Для тренировки вы можете создать новый аккаунт и практиковать слепую печать при помощи 12 обучающих уровней!</p>
+        </div>
+        <div class="tip-card">
+            <i class="fas fa-brain"></i>
+            <h3>Точность лучше скорости</h3>
+            <p>Старайтесь больше обращать внимание на точность ввода. Это поможет вам на уровнях с блоками, гирями и другими элементами, 
+                где вам нужно набирать слова без ошибок.</p>
+        </div>
+        <div class="tip-card">
+            <i class="fas fa-medal"></i>
+            <h3>Грамотно пользуйтесь бустерами</h3>
+            <p>Попался трудный уровень и вы не успеваете по времени? Используйте бустер "+2 ошибки", если над уровнем нет буквы "О", иначе рекомендуется использовать бустер "Упрощение уровня" или "Дополнительное время".</p>
+        </div>
+        <div class="tip-card">
+            <i class="fas fa-wallet"></i>
+            <h3>Сохраняйте монеты про запас</h3>
+            <p>Если у вас не бустеров, то вам точно могут пригодится монеты! Сберегите минимум 600 монет, так вы сможете продолжить игру в случае неудачи.</p>
+        </div>
+    </div>
+</div>
+
+     <div id="support" class="content-section">
+    <h2><i class="fas fa-life-ring"></i> Поддержка</h2>
+    
+    <div class="support-grid">
+        <div class="support-card">
+            <i class="fas fa-telegram-plane"></i>
+            <h3>Max</h3>
+            <p><a href="https://max.ru/join/Tw1KRNGWxbHvsPitW2fgH4UDdLROHBLEQUTvZze2jjc" target="_blank">Канал приложения</a></p>
+            <span class="support-desc">Быстрая помощь от разработчиков</span>
+        </div>
+
+        <div class="support-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p><a href="https://mail.google.com/mail/chess.leva2006@gmail.com">chess.leva2006@gmail.com</a></p>
+            <span class="support-desc">Официальная почта поддержки</span>
+        </div>
+
+
+        <div class="support-card">
+            <i class="fas fa-clock"></i>
+            <h3>Время ответа</h3>
+            <p>до 24 часов</p>
+            <span class="support-desc">Пн–Пт, 9:00–21:00 (МСК)</span>
+        </div>
+    </div>
+    <div class="faq-section" style="margin-top: 40px; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color);">
+    <h3><i class="fas fa-question-circle"></i> Частые вопросы</h3>
+    <div class="faq-item">
+        <strong>Как часто выходят обновления?</strong>
+        <p>Обновления выходят примерно раз в месяц, снапшоты и бета версии раз в неделю.</p>
+    </div>
+    <div class="faq-item">
+        <strong>Игра вылетела без ошибки — что делать?</strong>
+        <p>Обновите игру до последней версии или перезапустите приложение.</p>
+    </div>
+    <div class="faq-item">
+        <strong>Где найти код ошибки?</strong>
+        <p>Он появляется в красном окне. Скопируйте его и отправьте в поддержку.</p>
+    </div>
+</div>
+
+<style>
+.faq-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+.faq-item strong {
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+</style>
+</div>
+
+          <!-- Обновлённый раздел "Турнир" -->
+    <div id="tournament" class="content-section">
+        <h2><i class="fas fa-trophy"></i> Олимпийский Турнир</h2>
+        
+        <div class="tournament-container">
+            <div class="tournament-header">
+                <div class="medal-platform">
+                    <div class="gold-medal pulse">
+                        <i class="fas fa-medal"></i>
+                        <span>Золото</span>
+                    </div>
+                    <div class="silver-medal float">
+                        <i class="fas fa-medal"></i>
+                        <span>Серебро</span>
+                    </div>
+                    <div class="bronze-medal">
+                        <i class="fas fa-medal"></i>
+                        <span>Бронза</span>
+                    </div>
+                </div>
+                
+                <div class="tournament-rules">
+                    <h3>🔥 Испытание для чемпионов</h3>
+                    <p>Доступ открывается после прохождения всех основных уровней. Каждое испытание включает:</p>
+                    <ul>
+                        <li><i class="fas fa-fire"></i> Уровень сложности "Олимпийский"</li>
+                        <li><i class="fas fa-stopwatch"></i> Лимит времени: -30% от обычного</li>
+                        <li><i class="fas fa-dragon"></i> Специальные модификаторы</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tournament-features">
+                <div class="feature-card">
+                    <div class="feature-icon danger">
+                        <i class="fas fa-radiation"></i>
+                    </div>
+                    <h4>Экстремальные модификаторы</h4>
+                    <ul>
+                        <li>Автоматическая активация 3 случайных усложнителей</li>
+                        <li>Динамически меняющиеся цели уровня</li>
+                        <li>Обратный отсчёт при бездействии</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon elite">
+                        <i class="fas fa-helmet-battle"></i>
+                    </div>
+                    <h4>Элитные награды</h4>
+                    <div class="rewards-grid">
+                        <div class="reward-item">
+                            <i class="fas fa-crown"></i>
+                            <p>Эксклюзивные аватарки</p>
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Персональные титулы</p>
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-coins"></i>
+                            <p>×3 множитель монет</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-types">
+                <h3><i class="fas fa-skull-crossbones"></i> Типы испытаний</h3>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Темнота</h4>
+                        </div>
+                        <p>Слова становятся почти невидимыми</p>
+                        <div class="difficulty-meter">
+                            <div class="meter-fill" style="width: 85%"></div>
+                            <span>Сложность 8.5/10</span>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-brain"></i>
+                            <h4>Марафон</h4>
+                        </div>
+                        <p>50 случайных уровней подряд за один день.</p>
+                        <div class="difficulty-meter">
+                            <div class="meter-fill" style="width: 95%"></div>
+                            <span>Сложность 9.5/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-leaderboard">
+    <h3><i class="fas fa-chart-line"></i> Таблица лидеров</h3>
+    <div class="leaderboard-list">
+        <ul class="leaderboard-top10">
+            <li class="gold">
+                <span class="rank">🥇</span>
+                <span class="player-name">Best_Player2</span>
+                <span class="level">Ур. 179</span>
+                <span class="accuracy">96.0%</span>
+                <span class="points">64,673</span>
+            </li>
+            <li class="silver">
+                <span class="rank">🥈</span>
+                <span class="player-name">CCHHEECCKK</span>
+                <span class="level">Ур. 170</span>
+                <span class="accuracy">97.8%</span>
+                <span class="points">67,014</span>
+            </li>
+            
+            <li class="bronze">
+                <span class="rank">🥉</span>
+                <span class="player-name">LevNik</span>
+                <span class="level">Ур. 162</span>
+                <span class="accuracy">97.6%</span>
+                <span class="points">63,957</span>
+            </li>
+            <li>
+                <span class="rank">4</span>
+                <span class="player-name">Ksenia_Nikit</span>
+                <span class="level">Ур. 77</span>
+                <span class="accuracy">96.2%</span>
+                <span class="points">47,019</span>
+            </li>
+            <li>
+                <span class="rank">5</span>
+                <span class="player-name">Turbo_Spell</span>
+                <span class="level">Ур. 72</span>
+                <span class="accuracy">99.2%</span>
+                <span class="points">46,702</span>
+            </li>
+             <li>
+                <span class="rank">6</span>
+                <span class="player-name">Zayats</span>
+                <span class="level">Ур. 56</span>
+                <span class="accuracy">95.2%</span>
+                <span class="points">39,112</span>
+            </li>
+            <li>
+                <span class="rank">7</span>
+                <span class="player-name">Grand-b</span>
+                <span class="level">Ур. 46</span>
+                <span class="accuracy">100%</span>
+                <span class="points">46,510</span>
+            </li>
+            <li>
+                <span class="rank">8</span>
+                <span class="player-name">Dev-old</span>
+                <span class="level">Ур. 43</span>
+                <span class="accuracy">97.1%</span>
+                <span class="points">38,880</span>
+            </li>
+            <li>
+                <span class="rank">9</span>
+                <span class="player-name">Master_Tren</span>
+                <span class="level">Ур. 42</span>
+                <span class="accuracy">94.7%</span>
+                <span class="points">34,109</span>
+            </li>
+            <li>
+                <span class="rank">10</span>
+                <span class="player-name">ZFFTJEH</span>
+                <span class="level">Ур. 40</span>
+                <span class="accuracy">96.2%</span>
+                <span class="points">33,670</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+        </div>
+    </div>
+        <div class="footer">
+            <p>Тренажёр Слов © 2025-2026 | Все права защищены | Версия 3a068</p>
+            <p>Нужна помощь? Обращайтесь в нашу поддержку!</p>
+        </div>
+    </div>
+
+    <script>
+function searchVersions() {
+    const searchQuery = document.getElementById('versionSearch').value.trim().toLowerCase();
+    const clusters = document.querySelectorAll('.version-cluster');
+    let globalFound = false;
+
+    clusters.forEach(cluster => {
+        let clusterVisible = false;
+        const items = cluster.querySelectorAll('.version-item');
+
+        items.forEach(item => {
+            const visible = checkMatch(item, searchQuery);
+            item.style.display = visible ? 'block' : 'none';
+            if(visible) {
+                clusterVisible = true;
+                globalFound = true;
+            }
+        });
+
+        cluster.style.display = clusterVisible ? 'block' : 'none';
+    });
+
+    showNoResultsMessage(globalFound);
+}
+
+function checkMatch(item, query) {
+    const numberElem = item.querySelector('.version-number');
+    const descElem = item.querySelector('.version-description');
+    
+    // Сохраняем оригинальный текст
+    const originalNumber = numberElem.dataset.original || numberElem.innerHTML;
+    const originalDesc = descElem.dataset.original || descElem.innerHTML;
+    
+    // Сохраняем оригинал в data-атрибуты
+    numberElem.dataset.original = originalNumber;
+    descElem.dataset.original = originalDesc;
+
+    const match = originalNumber.toLowerCase().includes(query) || 
+                 originalDesc.toLowerCase().includes(query);
+
+    // Подсветка с сохранением регистра
+    const highlight = (text) => text.replace(
+        new RegExp(`(${query})`, 'gi'), 
+        '<mark>$1</mark>'
+    );
+
+    numberElem.innerHTML = highlight(originalNumber);
+    descElem.innerHTML = highlight(originalDesc);
+
+    return match;
+}
+
+
+function showNoResultsMessage(found) {
+    const existingMessage = document.getElementById('noResults');
+    if(!found && !existingMessage) {
+        const message = document.createElement('div');
+        message.id = 'noResults';
+        message.innerHTML = `
+            <div class="warning" style="margin: 20px auto; max-width: 500px">
+                <i class="fas fa-search-minus"></i>
+                Версий по вашему запросу не найдено. Попробуйте:
+                <ul style="text-align: left; margin: 10px 0">
+                    <li>Искать по номеру (например: 1.20.5)</li>
+                    <li>Искать по ключевым словам (таймер, баги, уровни)</li>
+                    <li>Проверить правильность написания</li>
+                </ul>
+            </div>
+        `;
+        document.querySelector('.version-timeline').appendChild(message);
+    } else if(found && existingMessage) {
+        existingMessage.remove();
+    }
+}
+
+// Дебаунс для оптимизации поиска
+let searchTimeout;
+document.getElementById('versionSearch').addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => searchVersions(), 300);
+});
+
+// Очистка поиска при нажатии ESC
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') {
+        document.getElementById('versionSearch').value = '';
+        searchVersions();
+    }
+});
+
+
+// Обработка нажатия Enter в поле поиска
+document.getElementById('versionSearch').addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') searchVersions();
+});
+
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Добавляем интерактивность кнопкам
+        document.querySelectorAll('.interactive-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Функция для скачивания версии
+        function downloadVersion(version) {
+            alert(`Загрузка версии ${version}...\n\nВ реальном приложении здесь начнётся скачивание файла.`);
+            console.log(`Инициирована загрузка версии: ${version}`);
+        }
+
+        // Добавляем анимации при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за карточками элементов
+        document.querySelectorAll('.element-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Наблюдаем за карточками версий
+        document.querySelectorAll('.version-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Наблюдаем за элементами ошибок
+        document.querySelectorAll('.error-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+            item.style.transition = 'all 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
