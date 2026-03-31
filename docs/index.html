@@ -202,7 +202,6 @@ li {
   border-left: 3px solid transparent;
   transition: all 0.3s ease;
   position: relative;
-  font-weight: var(--weight, 400); 
   color: var(--light-text);
 }
 
@@ -216,8 +215,9 @@ li::before {
 }
 
 li:hover {
-    --weight: 700; /* Делаем текст жирным */
+  transform: translateX(5px);
 }
+
 
 li:hover::before {
   opacity: 1;
