@@ -213,12 +213,12 @@ li::before {
   color: var(--secondary-color);
   font-weight: bold;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 li:hover {
-  transform: translateX(5px) scale(1.02);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+    font-size: 17px; /* Увеличиваем на 1 пиксель */
+    font-weight: 700; /* Делаем текст жирным */
 }
 
 li:hover::before {
