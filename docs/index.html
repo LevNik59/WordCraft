@@ -1230,16 +1230,12 @@ a:hover::after {
     color: #ffc107;
 }
 
-/* Контейнер карточек */
 .tips-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 25px;
     margin-top: 10px;
     padding: 0 10px;
-    position: relative;
-    z-index: 2;
 }
 
 /* Карточка совета */
