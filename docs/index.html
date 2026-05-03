@@ -2864,6 +2864,22 @@ a:hover::after {
                             </ul>
 						</div>
                     </div>
+					<div class="version-item">
+                        <div class="version-number">1.21.10</div>
+                        <div class="version-description">
+							<ul>
+								<li>- Поддержка Linux.</li>
+								<li>- Добавлены титры в настройках.</li>
+								<li>- Добавлена возможность посмотреть логи игры при ошибке (сохраняется на рабочем столе).</li>
+								<li>- Словарь слов (частично переведён на английский).</li>
+								<li>- Полностью переделан раздел "Карты".</li>
+								<li>- Сжатие приложения на 40 мегабайт.</li>
+								<li>- Переработаны награды в магазине.</li>
+								<li>- 70 новых уровней.</li>
+								<li>- Сохранение версий формата 3.0.</li>
+                            </ul>
+						</div>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -3133,7 +3149,7 @@ a:hover::after {
         </div>
     </div>
         <div class="footer">
-            <p>Тренажёр Слов © 2025-2026 | Все права защищены | Версия 4a061</p>
+            <p>Тренажёр Слов © 2025-2026 | Все права защищены | Версия 4a070</p>
             <p>Нужна помощь? Обращайтесь в нашу поддержку!</p>
         </div>
     </div>
@@ -3141,7 +3157,7 @@ a:hover::after {
     <script>
 function searchVersions() {
     const searchQuery = document.getElementById('versionSearch').value.trim().toLowerCase();
-	if (searchQuery == "") return;
+	if (searchQuery == "") showNoResultsMessage(globalFound);
     const clusters = document.querySelectorAll('.version-cluster');
     let globalFound = false;
 
