@@ -27,6 +27,45 @@
     --foam-color: #00bcd4;
     --apple-color: #ff4081;
 }
+.custom {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+}
+
+.custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.custom::before {
+    left: 100%;
+}
+
+.custom:hover {
+    background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -1200,7 +1239,7 @@ a:hover::after {
 #tips {
     padding: 40px;
     border-bottom: 1px solid var(--border-color);
-    margin: 30px auto; - можно оставить, если так оформлены другие секции
+    margin: 30px auto; /* можно оставить, если так оформлены другие секции*/
 }
 
 #tips::before {
@@ -2880,10 +2919,43 @@ a:hover::after {
                             </ul>
 						</div>
                     </div>
+                    <div class="version-item">
+                        <div class="version-number">1.21.11</div>
+                        <div class="version-description">
+							<ul>
+                                <li>- Переведено около 700 строк кода на английский.</li>
+                                <li>- Исправлены баги с отображением имён в "Рейтингах", если их меньше 10.</li>
+                                <li>- Исправлена орфографическая ошибка в "Титрах".</li>
+                                <li>- Исправлено 2 человечески невозможных уровня.</li>
+                            </ul>
+						</div>
+                    </div>
+                <div class="version-item">
+                        <div class="version-number">1.22.0 Starter Edition</div>
+                        <div class="version-description">
+							<ul>
+                            <li>- Исправлен баг с отображением кнопок.</li>
+                            <li>- Улучшен интерфейс в регистрации.</li>
+                            <li>- Новые анимации в обучающих кнопках.</li>
+                            <li>- Новый формат 3-х кнопок.</li>
+                            <li>- Формат версий 3.1.</li>
+                            </ul>
+						</div>
+                    </div>
+                <div class="version-item">
+                        <div class="version-number">WordCraft_22w01alpha</div>
+                        <div class="version-description">
+							<ul>
+                            </li>- Исправлен баг с уровнем слов.</li>
+                            </li>- Улучшается меню бустеров.</li>
+                            </li>- Исправлены другие мелкие баги.</li>
+                            </ul>
+						</div>
+                    </div>
                 </div>
                 </div>
-			<button onclick="window.location.href='https://github.com/LevNik59/WordCraft/releases/download/v1.22.0/WordCraft_22w01alpha.zip'">
-  Скачать файл
+			<button class="custom" onclick="window.location.href='https://github.com/LevNik59/WordCraft/releases/download/v1.22.0/WordCraft_22w01alpha.zip'">
+  Скачать последний снапшот
 </button>
             </div>
    <!-- Раздел "Советы по прохождению" -->
