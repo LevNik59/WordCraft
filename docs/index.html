@@ -1552,9 +1552,9 @@ a:hover::after {
                     <div class="element-title">Цвета</div>
                     <div class="element-description">
                         Каждое слово имеет свой цвет. Набирайте слова правильно, чтобы разукрасить палитру и пройти уровень.
-                    </div>
-                </div>
-                 <!-- Цвета -->
+            </div>
+            </div>
+                             <!-- Цвета -->
                 <div class="element-card">
                     <div class="element-icon"><i class="fas fa-suitcase"></i></div>
                     <div class="element-title">Футляр</div>
@@ -1590,7 +1590,6 @@ a:hover::after {
                         Некоторые слова будут "перевёрнуты" (то есть написаны справа налево). Вам придётся "перевернуть" это слова обратно и записать исправленный вариант. Следите за временем!
                     </div>
                 </div>
-            </div>
 							<div class="element-card">
                     <div class="element-icon"><i class="fas fa-sync-alt"></i></div>
                     <div class="element-title">Супер комбо</div>
@@ -1599,12 +1598,12 @@ a:hover::after {
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
 
         <!-- Раздел "Другие элементы" -->
         <div id="other-elements" class="content-section">
             <h2><i class="fas fa-star"></i> Другие элементы</h2>
-            
+            <div class="element-grid">
                 <!-- Бустер "+2 ошибки" -->
                 <div class="element-card">
                     <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
@@ -1716,6 +1715,7 @@ a:hover::after {
                         Подраздел настроек. Узнавайте значение неизвестных вам слов и изучайте новые. Вы получите награду, если введёте их все.
                     </div>
                 </div>
+        </div>
         </div>
 
 
@@ -1858,6 +1858,21 @@ a:hover::after {
             <i class="fas fa-lightbulb"></i> Подсказка
         </button>
     </div>
+        <!-- Ошибка 0x000000H4 -->
+    <div class="error-item">
+        <div class="error-code">0x000000H4</div>
+        <div class="error-description">Эта ошибка встречается на некоторых операционных системах во время обновления. Игра не может открыть определённый сайт из-за того, что система это не поддерживает.</div>
+        <div class="solution">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Запустите приложение от имени администратора</li>
+                <li>При необходимости откройте сайт самостоятельно</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Скопируйте домен сайта и откройте его')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
 	    <!-- Ошибка 0x000000FF -->
     <div class="error-item">
         <div class="error-code">0x000000FF</div>
@@ -1888,7 +1903,7 @@ a:hover::after {
         <div class="solution">
             <strong>Решение:</strong>
             <ul style="margin-top: 10px; padding-left: 20px;">
-                <li>Вы можете нажать OK, но некоторые функции приложения будут недоступны.</li>
+                <li>Перезапустите приложение, игра исправит всё автоматически.</li>
             </ul>
         </div>
     </div>
@@ -1898,15 +1913,15 @@ a:hover::after {
         <div class="solution">
             <strong>Решение:</strong>
             <ul style="margin-top: 10px; padding-left: 20px;">
-                <li>Перезапустите приложение, игра исправит всё автоматически.</li>
+                <li>Вы можете нажать OK, но некоторые функции приложения будут недоступны.</li>
             </ul>
         </div>
     </div>
 
     <!-- Предупреждение 0x00a1 -->
     <div class="error-item" style="border-left-color: var(--warning-color); background: rgba(243, 156, 18, 0.08);">
-        <div class="error-code" style="color: var(--warning-color);">⚠️ 0x00a1 (Предупреждение)</div>
-        <div class="error-description">Это предупреждение, а не критическая ошибка. Число строк вышло за допустимые границы. Это может привести к неверному размеру кнопок и элементов интерфейса.</div>
+        <div class="error-code" style="color: var(--warning-color);">⚠️ 0x00a1</div>
+        <div class="error-description">Число строк вышло за допустимые границы. Это может привести к неверному размеру кнопок и элементов интерфейса.</div>
         <div class="solution" style="background: rgba(243, 156, 18, 0.1); border-left-color: var(--warning-color);">
             <strong>Решение:</strong>
             <ul style="margin-top: 10px; padding-left: 20px;">
@@ -1916,6 +1931,30 @@ a:hover::after {
             </ul>
         </div>
         <button class="interactive-button" onclick="alert('Это предупреждение. Перезагрузите приложение, если интерфейс отображается неправильно.')">
+            <i class="fas fa-lightbulb"></i> Подсказка
+        </button>
+    </div>
+        <!-- Предупреждение 0x009p -->
+    <div class="error-item" style="border-left-color: var(--warning-color); background: rgba(243, 156, 18, 0.08);">
+        <div class="error-code" style="color: var(--warning-color);">⚠️ 0x009p</div>
+        <div class="error-description">Это предупреждение встречается при переносе файлов игры (при первом запуске) и означает, что путь целевой папки не найден. После неё могут последовать следующие ошибки:
+            <ol><strong>
+                <li>0x000000B9</li>
+                <li>0x000000F6</li>
+                <li>0x000000M0</li>
+                <li>0x000000C1</li>
+                </strong>
+            </ol>
+        </div>
+        <div class="solution" style="background: rgba(243, 156, 18, 0.1); border-left-color: var(--warning-color);">
+            <strong>Решение:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>Если после этого предупреждения не появилась ни одна из следующих ошибок, можно спокойно продолжить работу</li>
+                <li>Если вы обновились на одну из старых версий (до 1.22.1), необходимо обновиться на более новую версию</li>
+                <li>Если после этого предупреждения ошибки появляются и на последней версии, обратитесь в поддержку</li>
+            </ul>
+        </div>
+        <button class="interactive-button" onclick="alert('Обновите приложение, при необходимости переустановите его или обратитесь в поддержку.')">
             <i class="fas fa-lightbulb"></i> Подсказка
         </button>
     </div>
