@@ -329,9 +329,38 @@ mark {
 }
 
 .error-item:hover {
-    transform: translateY(-3px);
+    transform: scale(1.005);
     box-shadow: 0 5px 20px rgba(231, 76, 60, 0.2);
     background: rgba(231, 76, 60, 0.05);
+}
+.warning-item {
+    background: var(--item-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: all 0.7s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--warning-color);
+    border: 1px solid rgba(255, 200, 0, 0.3);
+}
+
+.warning-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0.3;
+}
+
+.warning-item:hover {
+    transform: scale(1.005);
+    box-shadow: 0 5px 20px rgba(255, 208, 1, 0.2);
+    background: rgba(255, 215, 0, 0.08);
 }
 
 .error-code {
@@ -1927,10 +1956,10 @@ a:hover::after {
     </div>
 
     <!-- Предупреждение 0x00a1 -->
-    <div class="error-item" style="border-left-color: var(--warning-color); background: rgba(243, 156, 18, 0.08);">
+    <div class="warning-item">
         <div class="error-code" style="color: var(--warning-color);">⚠️ 0x00a1</div>
         <div class="error-description">Число строк вышло за допустимые границы. Это может привести к неверному размеру кнопок и элементов интерфейса.</div>
-        <div class="solution" style="background: rgba(243, 156, 18, 0.1); border-left-color: var(--warning-color);">
+        <div class="solution">
             <strong>Решение:</strong>
             <ul style="margin-top: 10px; padding-left: 20px;">
                 <li>Это предупреждение обычно не критично и не требует действий</li>
@@ -1943,7 +1972,7 @@ a:hover::after {
         </button>
     </div>
         <!-- Предупреждение 0x009p -->
-    <div class="error-item" style="border-left-color: var(--warning-color); background: rgba(243, 156, 18, 0.08);">
+    <div class="warning-item">
         <div class="error-code" style="color: var(--warning-color);">⚠️ 0x009p</div>
         <div class="error-description">Это предупреждение встречается при переносе файлов игры (при первом запуске) и означает, что путь целевой папки не найден. После неё могут последовать следующие ошибки:
             <ol><strong>
@@ -1954,7 +1983,7 @@ a:hover::after {
                 </strong>
             </ol>
         </div>
-        <div class="solution" style="background: rgba(243, 156, 18, 0.1); border-left-color: var(--warning-color);">
+        <div class="solution">
             <strong>Решение:</strong>
             <ul style="margin-top: 10px; padding-left: 20px;">
                 <li>Если после этого предупреждения не появилась ни одна из следующих ошибок, можно спокойно продолжить работу</li>
@@ -1972,7 +2001,7 @@ a:hover::after {
         <h3><i class="fas fa-info-circle"></i> Справка по кодам ошибок</h3>
         <p><strong>Критические ошибки (0x0000.....):</strong> Требуют немедленного действия. Приложение может работать нестабильно.</p>
         <p><strong>Предупреждения (0x00...):</strong> Информационные сообщения. Приложение продолжит работу, но возможны проблемы с отображением.</p>
-        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color);"><strong>Если ошибка не указана в этом списке:</strong> Обратитесь в <a href="https://t.me/fromjavatoapp" target="_blank">поддержку</a> с полным текстом ошибки.</p>
+        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color);"><strong>Если ошибка не указана в этом списке:</strong> Обратитесь в <a href="https://max.ru/join/Tw1KRNGWxbHvsPitW2fgH4UDdLROHBLEQUTvZze2jjc" target="_blank">поддержку</a> с полным текстом ошибки.</p>
     </div>
 </div>
 
@@ -3389,7 +3418,7 @@ a:hover::after {
         </div>
     </div>
         <div class="footer">
-            <p>Тренажёр Слов © 2025-2026 | Все права защищены | Версия 4a215</p>
+            <p>Тренажёр Слов © 2025-2026 | Все права защищены | Версия 4a231</p>
             <p>Нужна помощь? Обращайтесь в нашу поддержку!</p>
         </div>
     </div>
